@@ -13,26 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
-
-    - name: Setup NuGet
-      uses: nuget/setup-nuget@v2
-      
-    - name: Restore NuGet packages
-      run: nuget restore
-
-    - name: Build
-      run: msbuild /p:Configuration=Release
-
-    - name: List files after build
-      run: dir
-
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: ACR Login
       uses: azure/docker-login@v1
